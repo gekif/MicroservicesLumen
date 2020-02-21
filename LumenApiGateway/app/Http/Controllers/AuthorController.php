@@ -48,7 +48,7 @@ class AuthorController
     public function store(Request $request)
     {
         return $this->successResponse($this->authorService
-            ->createAuthors($request->all(), Response::HTTP_CREATED));
+            ->createAuthor($request->all(), Response::HTTP_CREATED));
     }
 
 
@@ -58,7 +58,7 @@ class AuthorController
      */
     public function show($author)
     {
-
+        return $this->successResponse($this->authorService->obtainAuthor($author));
     }
 
 

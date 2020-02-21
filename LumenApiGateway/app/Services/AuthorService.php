@@ -39,12 +39,26 @@ class AuthorService
      * Create one author using the author service
      * @return string
      */
-    public function createAuthors($data)
+    public function createAuthor($data)
     {
         return $this->performRequest(
             'POST',
             '/authors',
             $data
+        );
+    }
+
+
+    /**
+     * Obtain one single author from the author service
+     * @return string
+     */
+
+    public function obtainAuthor($author)
+    {
+        return $this->performRequest(
+            'GET',
+            "/authors/{$author}"
         );
     }
 
