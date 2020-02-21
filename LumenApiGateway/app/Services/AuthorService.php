@@ -62,4 +62,18 @@ class AuthorService
         );
     }
 
+
+    /**
+     * Update an instance of author using the author service
+     *
+     */
+    public function editAuthor($data, $author)
+    {
+        return $this->performRequest(
+            'PUT',
+            "/authors/{$author}",
+            $data
+        );
+    }
+
 }

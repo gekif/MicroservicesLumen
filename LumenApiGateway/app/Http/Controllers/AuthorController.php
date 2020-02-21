@@ -68,7 +68,8 @@ class AuthorController
      */
     public function update(Request $request,$author)
     {
-
+        return $this->successResponse($this->authorService
+            ->editAuthor($request->all(), $author));
     }
 
 
