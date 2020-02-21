@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Traits\ConsumerExternalService;
+use App\Traits\ConsumesExternalService;
 
 class AuthorService
 {
-    use ConsumerExternalService;
+    use ConsumesExternalService;
 
 
     /**

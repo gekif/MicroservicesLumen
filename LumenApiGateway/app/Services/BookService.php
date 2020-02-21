@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Traits\ConsumerExternalService;
+use App\Traits\ConsumesExternalService;
 
 class BookService
 {
-    use ConsumerExternalService;
+    use ConsumesExternalService;
 
     /**
      * The base uri to consume the books service

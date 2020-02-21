@@ -37,7 +37,7 @@ class AuthorController
     public function index()
     {
         return $this->successResponse($this->authorService->obtainAuthors());
-        
+
 //        return 'success';
     }
 
