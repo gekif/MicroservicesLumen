@@ -8,7 +8,7 @@ use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class AuthorController
+class AuthorController extends Controller
 {
     use ApiResponser;
 
@@ -81,4 +81,5 @@ class AuthorController
     {
         return $this->successResponse($this->authorService->deleteAuthor($author));
     }
+
 }

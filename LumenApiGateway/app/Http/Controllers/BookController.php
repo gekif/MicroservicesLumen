@@ -6,8 +6,9 @@ namespace App\Http\Controllers;
 use App\Services\BookService;
 use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class BookController
+class BookController extends Controller
 {
     use ApiResponser;
 
@@ -15,6 +16,7 @@ class BookController
      * The service to consume the books microservice
      * @var BookService
      */
+
     public $bookService;
 
 
@@ -35,7 +37,7 @@ class BookController
      */
     public function index()
     {
-
+        return $this->successResponse($this->bookService->obtainBooks());
     }
 
 
@@ -45,7 +47,8 @@ class BookController
      */
     public function store(Request $request)
     {
-
+        return $this->successResponse($this->bookService
+            ->createBook($request->all(), Response::HTTP_CREATED));
     }
 
 
@@ -55,7 +58,7 @@ class BookController
      */
     public function show($book)
     {
-
+        return $this->successResponse($this->bookService->obtainBook($book));
     }
 
 
@@ -63,9 +66,10 @@ class BookController
      * Update existing book
      * @return Illuminate\Http\Response
      */
-    public function update(Request $request, $book)
+    public function update(Request $request,$book)
     {
-
+        return $this->successResponse($this->bookService
+            ->editBook($request->all(), $book));
     }
 
 
@@ -75,7 +79,7 @@ class BookController
      */
     public function destroy($book)
     {
-
+        return $this->successResponse($this->bookService->deleteBook($book));
     }
 
 }
