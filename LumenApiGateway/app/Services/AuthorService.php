@@ -34,4 +34,18 @@ class AuthorService
         );
     }
 
+
+    /**
+     * Create one author using the author service
+     * @return string
+     */
+    public function createAuthors($data)
+    {
+        return $this->performRequest(
+            'POST',
+            '/authors',
+            $data
+        );
+    }
+
 }
