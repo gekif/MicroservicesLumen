@@ -3,4 +3,5 @@
 Homestead.json
 Homestead.yaml
 .env
-/database/database.sqlite
+database/database.sqlite
+storage/*.key

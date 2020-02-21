@@ -32,6 +32,7 @@ $app = new Laravel\Lumen\Application(
  * Registering config file
  */
 $app->configure('services');
+$app->configure('auth');
 
 
 /*
