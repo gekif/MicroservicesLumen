@@ -8,15 +8,30 @@ class AuthorService
 {
     use ConsumerExternalService;
 
+
     /**
      * The base uri to consume the authors service
      * @var string
      */
     public $baseUri;
 
+
     public function __construct()
     {
         $this->baseUri = config('services.authors.base_uri');
+    }
+
+
+    /**
+     * Obtain the full list of author from the author service
+     * @return string
+     */
+    public function obtainAuthors()
+    {
+        return $this->performRequest(
+            'GET',
+            '/authors'
+        );
     }
 
 }
