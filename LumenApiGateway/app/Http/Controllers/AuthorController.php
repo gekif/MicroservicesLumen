@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 
+use App\Services\AuthorService;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 
 class AuthorController
 {
     use ApiResponser;
+
+    /**
+     * The service to consume the authors microservice
+     * @var AuthorService
+     */
+
+    public $authorService;
 
 
     /**
@@ -15,9 +24,9 @@ class AuthorController
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(AuthorService $authorService)
     {
-        //
+        $this->authorService = $authorService;
     }
 
 
