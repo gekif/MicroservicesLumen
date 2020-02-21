@@ -65,7 +65,7 @@ class AuthorService
 
     /**
      * Update an instance of author using the author service
-     *
+     * @return string
      */
     public function editAuthor($data, $author)
     {
@@ -73,6 +73,19 @@ class AuthorService
             'PUT',
             "/authors/{$author}",
             $data
+        );
+    }
+
+
+    /**
+     * remove a single author using the author service
+     * @return string
+     */
+    public function deleteAuthor($author)
+    {
+        return $this->performRequest(
+            'DELETE',
+            "/authors/{$author}"
         );
     }
 
