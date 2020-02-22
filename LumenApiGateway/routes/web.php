@@ -12,34 +12,41 @@
 */
 
 
-/**
- * Routes for authors
- */
-$router->get('/authors', 'AuthorController@index');
+$router->group(['middleware' => 'client.credentials'],
+    function () use ($router) {
 
-$router->post('/authors', 'AuthorController@store');
+    /**
+     * Routes for authors
+     */
+    $router->get('/authors', 'AuthorController@index');
 
-$router->get('/authors/{author}', 'AuthorController@show');
+    $router->post('/authors', 'AuthorController@store');
 
-$router->put('/authors/{author}', 'AuthorController@update');
+    $router->get('/authors/{author}', 'AuthorController@show');
 
-$router->patch('/authors/{author}', 'AuthorController@update');
+    $router->put('/authors/{author}', 'AuthorController@update');
 
-$router->delete('/authors/{author}', 'AuthorController@destroy');
+    $router->patch('/authors/{author}', 'AuthorController@update');
+
+    $router->delete('/authors/{author}', 'AuthorController@destroy');
 
 
-/**
- * Routes for books
- */
-$router->get('/books', 'BookController@index');
+    /**
+     * Routes for books
+     */
+    $router->get('/books', 'BookController@index');
 
-$router->post('/books', 'BookController@store');
+    $router->post('/books', 'BookController@store');
 
-$router->get('/books/{book}', 'BookController@show');
+    $router->get('/books/{book}', 'BookController@show');
 
-$router->put('/books/{book}', 'BookController@update');
+    $router->put('/books/{book}', 'BookController@update');
 
-$router->patch('/books/{book}', 'BookController@update');
+    $router->patch('/books/{book}', 'BookController@update');
 
-$router->delete('/books/{book}', 'BookController@destroy');
+    $router->delete('/books/{book}', 'BookController@destroy');
+
+});
+
+
 
